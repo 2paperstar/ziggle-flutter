@@ -15,7 +15,8 @@
     "create": "Create a group",
     "my": "My Groups",
     "empty": "There are no groups you belong to.",
-    "howToJoin": "If you wish to join a specific group, please contact the administrator of that group."
+    "howToJoin": "If you wish to join a specific group, please contact the administrator of that group.",
+    "people": "$count people"
   },
   "open": "Open",
   "name": "Name",

@@ -11,8 +11,7 @@ part 'group_bloc.freezed.dart';
 class GroupBloc extends Bloc<GroupEvent, GroupState> {
   final GroupRepository groupRepository;
 
-  GroupBloc({required this.groupRepository})
-      : super(const GroupState.initial()) {
+  GroupBloc(this.groupRepository) : super(const GroupState.initial()) {
     on<_Load>((event, emit) async {
       emit(GroupState.loading(state.groups));
       try {
@@ -32,6 +31,8 @@ sealed class GroupEvent with _$GroupEvent {
 
 @freezed
 sealed class GroupState with _$GroupState {
+  const GroupState._();
+
   const factory GroupState.initial([
     @Default([]) List<GroupEntity> groups,
   ]) = _Initial;
@@ -43,4 +44,6 @@ sealed class GroupState with _$GroupState {
     String message, [
     @Default([]) List<GroupEntity> groups,
   ]) = _Error;
+
+  bool get isLoading => this is _Loading;
 }
