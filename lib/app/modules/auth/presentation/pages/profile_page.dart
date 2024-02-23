@@ -131,7 +131,10 @@ class _NoticeSectionButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       leading: type.icon.svg(),
-      title: Text(type.label),
+      title: Text(
+        type.label,
+        style: const TextStyle(fontWeight: FontWeight.w600),
+      ),
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -192,7 +195,10 @@ class _FeedbackButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       leading: Assets.icons.flag.svg(),
-      title: Text(t.setting.feedbackReport),
+      title: Text(
+        t.setting.feedbackReport,
+        style: const TextStyle(fontWeight: FontWeight.w600),
+      ),
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
