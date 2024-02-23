@@ -10,6 +10,13 @@
     "action": "Log in"
   },
   "feedbackReport": "Feedback · Report a bug",
+  "group": {
+    "title": "Group",
+    "create": "Create a group",
+    "my": "My Groups",
+    "empty": "There are no groups you belong to.",
+    "howToJoin": "If you wish to join a specific group, please contact the administrator of that group."
+  },
   "open": "Open",
   "name": "Name",
   "studentId": "Student ID",

@@ -28,24 +28,32 @@ class ProfilePage extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: BlocBuilder<AuthBloc, AuthState>(
-          builder: (context, state) => state.hasUser
-              ? const Column(
-                  children: [
-                    _Profile(),
-                    Divider(),
-                    _NoticeSectionButton(NoticeType.written),
-                    _NoticeSectionButton(NoticeType.reminded),
-                    Divider(),
-                    _FeedbackButton(),
-                  ],
-                )
-              : const Column(
-                  children: [
-                    _Login(),
-                    Divider(),
-                    _FeedbackButton(),
-                  ],
+          builder: (context, state) => Column(
+            children: [
+              if (state.hasUser) ...const [
+                _Profile(),
+                Divider(),
+                _NoticeSectionButton(NoticeType.written),
+                _NoticeSectionButton(NoticeType.reminded),
+              ] else
+                const _Login(),
+              const Divider(),
+              if (state.hasUser) ...[
+                _PageButton(
+                  icon: Assets.icons.group.svg(),
+                  title: t.setting.group.title,
+                  action: t.notice.viewList,
+                  onTap: () => const GroupRoute().push(context),
                 ),
+              ],
+              _PageButton(
+                icon: Assets.icons.flag.svg(),
+                title: t.setting.feedbackReport,
+                action: t.setting.open,
+                onTap: () => launchUrlString(Strings.heyDeveloperUrl),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -172,20 +180,6 @@ class _Login extends StatelessWidget {
           )
         ],
       ),
-    );
-  }
-}
-
-class _FeedbackButton extends StatelessWidget {
-  const _FeedbackButton();
-
-  @override
-  Widget build(BuildContext context) {
-    return _PageButton(
-      icon: Assets.icons.flag.svg(),
-      title: t.setting.feedbackReport,
-      action: t.setting.open,
-      onTap: () => launchUrlString(Strings.heyDeveloperUrl),
     );
   }
 }

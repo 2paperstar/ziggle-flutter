@@ -12,6 +12,7 @@ part of 'routes.dart';
         ),
       ],
     ),
+    TypedGoRoute<GroupRoute>(path: 'group'),
   ],
 )
 class SettingRoute extends GoRouteData {
@@ -56,4 +57,10 @@ class LicenseRoute extends GoRouteData {
         package: package,
         licenses: paragraphs,
       );
+}
+
+class GroupRoute extends GoRouteData {
+  const GroupRoute();
+  @override
+  Widget build(context, state) => const GroupPage();
 }
