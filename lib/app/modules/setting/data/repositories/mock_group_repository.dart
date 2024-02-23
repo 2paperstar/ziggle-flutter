@@ -8,7 +8,6 @@ import '../../domain/repositories/group_repository.dart';
 class MockGroupRepository implements GroupRepository {
   @override
   Future<List<GroupEntity>> getGroups() async {
-    await Future.delayed(const Duration(seconds: 1));
     return [
       GroupEntity.mock(
         name: '인포팀',
