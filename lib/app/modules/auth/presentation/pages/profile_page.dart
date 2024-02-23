@@ -129,22 +129,10 @@ class _NoticeSectionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: type.icon.svg(),
-      title: Text(
-        type.label,
-        style: const TextStyle(fontWeight: FontWeight.w600),
-      ),
-      trailing: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(
-            t.notice.viewList,
-            style: const TextStyle(fontSize: 14, color: Palette.textGrey),
-          ),
-          const Icon(Icons.chevron_right, color: Palette.textGrey),
-        ],
-      ),
+    return _PageButton(
+      icon: type.icon.svg(),
+      title: type.label,
+      action: t.notice.viewList,
       onTap: () => SectionRoute(type: type).push(context),
     );
   }
@@ -193,23 +181,44 @@ class _FeedbackButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return _PageButton(
+      icon: Assets.icons.flag.svg(),
+      title: t.setting.feedbackReport,
+      action: t.setting.open,
+      onTap: () => launchUrlString(Strings.heyDeveloperUrl),
+    );
+  }
+}
+
+class _PageButton extends StatelessWidget {
+  const _PageButton({
+    required this.icon,
+    required this.title,
+    required this.action,
+    required this.onTap,
+  });
+
+  final Widget icon;
+  final String title;
+  final String action;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
     return ListTile(
-      leading: Assets.icons.flag.svg(),
-      title: Text(
-        t.setting.feedbackReport,
-        style: const TextStyle(fontWeight: FontWeight.w600),
-      ),
+      leading: icon,
+      title: Text(title, style: const TextStyle(fontWeight: FontWeight.w600)),
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            t.setting.open,
+            action,
             style: const TextStyle(fontSize: 14, color: Palette.textGrey),
           ),
           const Icon(Icons.chevron_right, color: Palette.textGrey),
         ],
       ),
-      onTap: () => launchUrlString(Strings.heyDeveloperUrl),
+      onTap: onTap,
     );
   }
 }
