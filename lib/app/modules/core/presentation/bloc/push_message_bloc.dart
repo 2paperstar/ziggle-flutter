@@ -6,7 +6,7 @@ import '../../domain/repositories/push_message_repository.dart';
 
 part 'push_message_bloc.freezed.dart';
 
-@singleton
+@injectable
 class PushMessageBloc extends Bloc<PushMessageEvent, PushMessageState> {
   final PushMessageRepository _repository;
 
