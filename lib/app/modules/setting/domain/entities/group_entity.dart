@@ -6,6 +6,7 @@ class GroupEntity {
   final String englishName;
   final UserEntity representative;
   final List<UserEntity> users;
+  final bool verified;
 
   GroupEntity({
     required this.id,
@@ -13,6 +14,7 @@ class GroupEntity {
     required this.englishName,
     required this.representative,
     required this.users,
+    required this.verified,
   });
 
   factory GroupEntity.mock({
@@ -20,6 +22,7 @@ class GroupEntity {
     required String englishName,
     required UserEntity representative,
     required List<UserEntity> users,
+    bool verified = false,
   }) {
     return GroupEntity(
       id: 1,
@@ -27,6 +30,7 @@ class GroupEntity {
       englishName: englishName,
       representative: representative,
       users: users,
+      verified: verified,
     );
   }
 }

@@ -163,12 +163,24 @@ class _GroupCard extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(width: 5),
+                    if (group.verified)
+                      Padding(
+                        padding: const EdgeInsets.only(left: 5),
+                        child: Assets.icons.badgeCheckFilled.svg(
+                          colorFilter: const ColorFilter.mode(
+                            Palette.primary100,
+                            BlendMode.srcIn,
+                          ),
+                        ),
+                      ),
                     if (isRepresentative)
-                      Assets.icons.crown.svg(
-                        colorFilter: const ColorFilter.mode(
-                          Palette.primary100,
-                          BlendMode.srcIn,
+                      Padding(
+                        padding: const EdgeInsets.only(left: 5),
+                        child: Assets.icons.crown.svg(
+                          colorFilter: const ColorFilter.mode(
+                            Palette.primary100,
+                            BlendMode.srcIn,
+                          ),
                         ),
                       ),
                   ],

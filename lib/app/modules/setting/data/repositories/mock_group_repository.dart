@@ -17,6 +17,7 @@ class MockGroupRepository implements GroupRepository {
           21,
           (index) => UserEntity.mock(name: '최익준', studentId: '20235203'),
         ),
+        verified: true,
       ),
       GroupEntity.mock(
         name: 'WING',
