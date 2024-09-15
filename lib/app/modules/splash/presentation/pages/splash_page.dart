@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:ziggle/app/modules/common/presentation/widgets/ziggle_button.dart';
 import 'package:ziggle/app/router/routes.dart';
 
@@ -8,7 +9,7 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ZiggleButton.cta(
-      onPressed: () => const FeedRoute().go(context),
+      onPressed: () => const SettingRoute().go(context),
       child: const Text('feed page'),
     );
   }

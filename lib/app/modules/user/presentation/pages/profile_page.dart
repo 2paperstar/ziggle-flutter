@@ -68,6 +68,11 @@ class _Layout extends StatelessWidget {
               ),
             const SizedBox(height: 40),
             ZiggleRowButton(
+              title: const Text('create group'),
+              onPressed: () => const GroupCreationRoute().push(context),
+            ),
+            const SizedBox(height: 20),
+            ZiggleRowButton(
               icon: Assets.icons.setting.svg(),
               title: Text(context.t.user.setting.title),
               onPressed: () => const SettingRoute().push(context),
