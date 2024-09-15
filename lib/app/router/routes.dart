@@ -39,13 +39,10 @@ part 'routes.g.dart';
 part 'splash_routes.dart';
 part 'user_routes.dart';
 
-final rootNavigatorKey = GlobalKey<NavigatorState>();
-
 abstract class AppRoutes {
   AppRoutes._();
 
   static final config = GoRouter(
-    navigatorKey: rootNavigatorKey,
     initialLocation: const SplashRoute().location,
     routes: $appRoutes,
     debugLogDiagnostics: kDebugMode,
@@ -55,13 +52,17 @@ abstract class AppRoutes {
 extension GoRouterExtension on GoRouter {
   void popUntilPath(String ancestorPath) async {
     final match = routerDelegate.currentConfiguration.matches.last;
-    if (match is ImperativeRouteMatch) {
+    print(match);
+    if (match is ShellRouteMatch) {
+      print(match.matches);
       if (match.matches.last.matchedLocation == ancestorPath) return;
     } else {
       if (match.matchedLocation == ancestorPath) return;
     }
     pop();
-    popUntilPath(ancestorPath);
+    pop();
+    pop();
+    // Future.delayed(Duration(seconds: 1), () => popUntilPath(ancestorPath));
   }
 }
 

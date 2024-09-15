@@ -11,7 +11,6 @@ class NoticeDetailRoute extends GoRouteData {
 
   final int id;
   final Map<String, dynamic>? $extra;
-  static final $parentNavigatorKey = rootNavigatorKey;
 
   @override
   Widget build(BuildContext context, GoRouterState state) => DetailPage(
@@ -24,7 +23,6 @@ class NoticeDetailRoute extends GoRouteData {
 @TypedGoRoute<SearchRoute>(path: '/search')
 class SearchRoute extends GoRouteData {
   const SearchRoute();
-  static final $parentNavigatorKey = rootNavigatorKey;
   @override
   Widget build(context, state) => const SearchPage();
 }
@@ -34,7 +32,6 @@ class NoticeCategoryRoute extends GoRouteData {
   const NoticeCategoryRoute(this.type);
 
   final NoticeType type;
-  static final $parentNavigatorKey = rootNavigatorKey;
 
   @override
   Widget build(context, state) =>

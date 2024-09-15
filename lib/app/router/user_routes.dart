@@ -9,28 +9,24 @@ part of 'routes.dart';
 ])
 class SettingRoute extends GoRouteData {
   const SettingRoute();
-  static final $parentNavigatorKey = rootNavigatorKey;
   @override
   Widget build(context, state) => const SettingPage();
 }
 
 class InformationRoute extends GoRouteData {
   const InformationRoute();
-  static final $parentNavigatorKey = rootNavigatorKey;
   @override
   Widget build(context, state) => const InformationPage();
 }
 
 class PackagesRoute extends GoRouteData {
   const PackagesRoute();
-  static final $parentNavigatorKey = rootNavigatorKey;
   @override
   Widget build(context, state) => const PackagesPage();
 }
 
 class PackageLicensesRoute extends GoRouteData {
   const PackageLicensesRoute(this.package, this.$extra);
-  static final $parentNavigatorKey = rootNavigatorKey;
   factory PackageLicensesRoute.fromParagraph(
     String package,
     List<LicenseParagraph> paragraphs,
