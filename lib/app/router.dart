@@ -70,6 +70,7 @@ class AppRouter extends RootStackRouter {
           ),
         ],
       ),
+      AutoRoute(path: '/:type', page: ListRoute.page),
       AutoRoute(path: '/notice/:id', page: DetailRoute.page),
       AutoRoute(path: '/notice/:id/edit', page: NoticeEditRoute.page),
       AutoRoute(
