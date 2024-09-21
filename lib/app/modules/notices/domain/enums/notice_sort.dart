@@ -8,7 +8,7 @@ enum NoticeSort {
   static NoticeSort fromType(NoticeType type) =>
       {
         NoticeType.deadline: NoticeSort.deadline,
-        NoticeType.hot: NoticeSort.hot,
+        NoticeType.zigglepick: NoticeSort.hot,
       }[type] ??
       NoticeSort.recent;
 }

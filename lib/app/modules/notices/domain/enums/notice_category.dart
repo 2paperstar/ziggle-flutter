@@ -17,6 +17,6 @@ enum NoticeCategory {
         NoticeType.academic: NoticeCategory.academic,
         NoticeType.recruit: NoticeCategory.recruit,
         NoticeType.event: NoticeCategory.event,
-        NoticeType.general: NoticeCategory.etc,
+        NoticeType.etc: NoticeCategory.etc,
       }[type];
 }
